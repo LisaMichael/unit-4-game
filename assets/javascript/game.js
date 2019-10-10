@@ -30,22 +30,22 @@ $(document).ready(function () {
   // $("#gameTarget").text("Target: " + targetPractice);
 
 
-// using QueryGenerator exercise code to generate text
-$("#gameDesc").html("<p>game instructions </p><p> testtext2 </p>");
+  // using QueryGenerator exercise code to generate text
+  $("#gameDesc").html("<p>You will be given a random number at the start of the game.</p><p>There are four crystals below. By clicking on a crystal you, you will add a specific amount of points to your total score.</p><p>You win the game by matching your total score to random number. You lose the game if your total score goes above the random number. </p>The value of each crystal is hidden from you until you click on it.<p></p><p>Each time you when the game starts, the game will change the  value of each crystal.</p>");
 
-$("#gameTarget").html("<p>Target: </p>");
+  $("#gameTarget").html("<p>Target: </p>");
 
-    // jQuery alternative to: var newDiv = document.createElement("div");
-    var newDiv = $("<div>");
+  // jQuery alternative to: var newDiv = document.createElement("div");
+  var newDiv = $("<div>");
 
-    // jQuery alternative to: newDiv.textContent = "A pleasure to meet you!";
-    newDiv.html( "<p> target number goes here </p>");
+  // jQuery alternative to: newDiv.textContent = "A pleasure to meet you!";
+  newDiv.html("<p> target number goes here </p>");
 
-    // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
-    $("#gameTarget").append(newDiv);
+  // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
+  $("#gameTarget").append(newDiv);
 
-    // use will use this code to apply CSS
-    newDiv.attr("class", "targetDiv");
+  // use will use this code to apply CSS
+  newDiv.attr("class", "targetDiv");
 
 
   //create array of numbers between 1 and 4 for the gem image nth iterations 
@@ -53,9 +53,9 @@ $("#gameTarget").html("<p>Target: </p>");
     numberOptions.push(i);
   }
 
-  
-  
- // used the exercise 12 crystal example but tweaked it for gem columns
+
+
+  // used the exercise 12 crystal example but tweaked it for gem columns
 
   //  for loop to create crystals for each nth numberOption.
   for (let i = 0; i < numberOptions.length; i++) {
@@ -78,8 +78,8 @@ $("#gameTarget").html("<p>Target: </p>");
     // used you tube video and fridge video to figure this out 
     //https://www.youtube.com/watch?v=Cc3K2jDdKTo
     //  each crystal image (with all it classes and attributes) will get added to the page.
-    $('#gem'+[i]).append(imageCrystal);
-    
+    $('#gem' + [i]).append(imageCrystal);
+
   }
 
 });
