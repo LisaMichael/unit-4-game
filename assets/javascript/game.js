@@ -16,18 +16,18 @@ $(document).ready(function () {
 
 
     // create a random number for the targetNumber array
-    let randomTarget = [Math.floor(Math.random() * targetNumber.length)];
+    let randomTarget = [Math.floor(Math.random() * (targetNumber.length) + 19)];
 
-
+return randomTarget;
     //this is a test to test my code
     // alert(randomTarget)
   }
 
   // target()
 
-  // let targetPractice = target();
+  let targetPractice = target();
   // $('#gameTarget').append(document.createTextNode(targetPractice));
-  // $("#gameTarget").text("Target: " + targetPractice);
+  $("#gameTarget").text("Target: " + targetPractice);
 
 
   // using QueryGenerator exercise code to generate text
@@ -36,16 +36,18 @@ $(document).ready(function () {
   $("#gameTarget").html("<p>Target: </p>");
 
   // jQuery alternative to: var newDiv = document.createElement("div");
-  var newDiv = $("<div>");
+  let newDiv = $("<div>");
 
-  // jQuery alternative to: newDiv.textContent = "A pleasure to meet you!";
-  newDiv.html("<p> target number goes here </p>");
+  // jquery to add target score to game.js
+  newDiv.html(targetPractice);
 
   // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
   $("#gameTarget").append(newDiv);
 
   // use will use this code to apply CSS
   newDiv.attr("class", "targetDiv");
+
+$("#scoreTitle").attr("background-color","red");
 
 
   //create array of numbers between 1 and 4 for the gem image nth iterations 
@@ -72,7 +74,7 @@ $(document).ready(function () {
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
-    // imageCrystal.attr("data-crystalValue", numberOptions[i]);
+    imageCrystal.attr("data-crystalValue", numberOptions[i]);
 
 
     // used you tube video and fridge video to figure this out 
