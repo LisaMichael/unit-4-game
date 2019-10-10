@@ -1,3 +1,7 @@
+h1 {
+  background-color:rgb(235, 109, 25);
+  width: 350px;
+}
 body {
 
     background-image: url("../images/honeycomb.jpg");
