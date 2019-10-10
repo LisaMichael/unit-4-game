@@ -18,7 +18,7 @@ $(document).ready(function () {
     // create a random number for the targetNumber array
     let randomTarget = [Math.floor(Math.random() * (targetNumber.length) + 19)];
 
-return randomTarget;
+    return randomTarget;
     //this is a test to test my code
     // alert(randomTarget)
   }
@@ -26,14 +26,14 @@ return randomTarget;
   // target()
 
   let targetPractice = target();
-  // $('#gameTarget').append(document.createTextNode(targetPractice));
-  $("#gameTarget").text("Target: " + targetPractice);
+
+
 
 
   // using QueryGenerator exercise code to generate text
   $("#gameDesc").html("<p>You will be given a random number at the start of the game.</p><p>There are four crystals below. By clicking on a crystal you, you will add a specific amount of points to your total score.</p><p>You win the game by matching your total score to random number. You lose the game if your total score goes above the random number. </p>The value of each crystal is hidden from you until you click on it.<p></p><p>Each time you when the game starts, the game will change the  value of each crystal.</p>");
 
-  $("#gameTarget").html("<p>Target: </p>");
+
 
   // jQuery alternative to: var newDiv = document.createElement("div");
   let newDiv = $("<div>");
@@ -47,8 +47,16 @@ return randomTarget;
   // use will use this code to apply CSS
   newDiv.attr("class", "targetDiv");
 
-$("#scoreTitle").attr("background-color","red");
+  // working on score title
+// made titleScore a <p> and html then appended to scoreTitle
+  const titleScore = $("<p>");
+   titleScore.html("Your Total Score is: ");
+  $("#scoreTitle").append(titleScore);
 
+  //css attributes for scoreTitle
+  //obtained syntax from: 
+  //https://stackoverflow.com/questions/24687431/uses-jquery-attr-to-set-css/24687602
+  titleScore.attr('style', 'background-color:turquoise');
 
   //create array of numbers between 1 and 4 for the gem image nth iterations 
   for (let i = 0; i < 4; i++) {
@@ -57,7 +65,7 @@ $("#scoreTitle").attr("background-color","red");
 
 
 
-  // used the exercise 12 crystal example but tweaked it for gem columns
+  // used wk4 exercise 12 crystal example but tweaked it for gem columns
 
   //  for loop to create crystals for each nth numberOption.
   for (let i = 0; i < numberOptions.length; i++) {
