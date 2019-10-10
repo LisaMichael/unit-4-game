@@ -7,10 +7,19 @@ body {
     background-image: url("../images/honeycomb.jpg");
   }
 
-  #row {
-    float: left;
+  .container {
+    width: 1010px;
+    left: 0px;
+    display: inline-block; 
   }
 
+  /* #row { */
+    /* float: left; */
+  /* } */
+
+  .gemRow {
+    float: left;
+  }
   .gameTarget {
     background-color:  rgb(0, 255, 42);
   }
