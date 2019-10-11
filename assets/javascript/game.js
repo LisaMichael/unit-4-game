@@ -81,13 +81,13 @@ $(document).ready(function () {
     // Each gemImage will be given a data attribute called data-gemValue.
     // data-gemValue will be used further down in code for onClick
     // This data attribute will be set equal to the array value.
-    gemImage.attr("data-gemValue", gemNumber[i]);
+    gemImage.attr("data-gemValue", Math.floor(Math.random() * 12) + 1);
 
 
     // generate a random number 
-    let GemClick = [Math.floor(Math.random() * 12) + 1];
-    alert(GemClick);
-    randomGemClick.push(gemClick);
+    // gemClick = [Math.floor(Math.random() * 12) + 1];
+    
+    // randomGemClick.push(gemClick);
 
     // used youtube video and fridge video to figure this out 
     //https://www.youtube.com/watch?v=Cc3K2jDdKTo
@@ -111,16 +111,17 @@ $(document).ready(function () {
     gemValue = parseInt(gemValue);
 
 
-    // jQuery alternative to: var newDiv = document.createElement("div");
+    // jQuery alternative to add a new div
     let scoreDiv = $("<div>");
-
+    
+   
     // jquery to add target score 
-    alert(randomGemClick + "test");
+   
     userScore = userScore * 1;
-    userScore += randomClick;
+    userScore += gemValue;
     scoreDiv.html(userScore);
     // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
-    $("#playerScore").append(scoreDiv);
+    $("#playerScore").html(scoreDiv);
 
     // use will use this code to apply CSS
     scoreDiv.attr('style', 'background-color:turquoise');
