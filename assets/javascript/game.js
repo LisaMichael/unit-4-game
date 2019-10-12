@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("#playerScore").html(userScore);
     gemEmpty();
     gemInit();
+    targetNumber = [];
     target();
     newDiv.html(randomTarget);
   }
