@@ -1,13 +1,21 @@
 $(document).ready(function () {
   let targetNumber = [];
-  let counter = 0;
   let winCounter = 0;
   let lossCounter = 0;
   let userScore = 0;
   let gemNumber = [];
-  let gemClick = [];
-  let randomGemClick = [];
+  let randomTarget = [];
 
+  // create initialize function
+  // reset user score, gemvalues and random target number 
+  function init() {
+    userScore = 0;
+    $("#playerScore").html(userScore);
+    gemEmpty();
+    gemInit();
+    target();
+    newDiv.html(randomTarget);
+  }
 
   // create target array of numbers between 19 and 120 using a for loop
 
@@ -18,7 +26,7 @@ $(document).ready(function () {
 
 
     // create a random number for the targetNumber array
-    let randomTarget = [Math.floor(Math.random() * (targetNumber.length) + 19)];
+    randomTarget = [Math.floor(Math.random() * (targetNumber.length) + 19)];
 
     //return the randomTarget value and close function
     return randomTarget;
@@ -27,6 +35,56 @@ $(document).ready(function () {
   }
 
   let targetPractice = target();
+
+
+
+  // initialize my gems, i put in a function
+
+
+
+  //create array of numbers between 1 and 4 for the gem image nth iterations 
+  for (let i = 0; i < 4; i++) {
+    gemNumber.push(i);
+  }
+
+  function gemInit() {
+    // used wk4 exercise 12 crystal example but tweaked it 
+    // so each nth gem image appears in its specific column
+    //  for loop to create crystals for each nth numberOption.
+    for (let i = 0; i < gemNumber.length; i++) {
+
+      // For each iteration, we will create an gemImage
+      let gemImage = $("<img>");
+
+      // each crystal will be given the class ".gem-image".
+      gemImage.addClass("gem-image");
+
+      // Each gemImage in the gemNumber array will be given a src link to the gem image
+      gemImage.attr("src", "./assets/images/gem" + [i] + ".jpg");
+
+      // Each gemImage will be given a data attribute called data-gemValue.
+      // data-gemValue will be used further down in code for onClick
+      // This data attribute will be set equal to a random number between 1 and 12.
+      gemImage.attr("data-gemValue", Math.floor(Math.random() * 12) + 1);
+
+
+      // used youtube video and fridge video to figure this out 
+      //https://www.youtube.com/watch?v=Cc3K2jDdKTo
+      //  each gem image is appended to my gem row in its specific column
+      $('#gem' + [i]).append(gemImage);
+
+    }
+
+  }
+
+  // empty my gems div, i'll call it back later in init function to fill it
+  function gemEmpty() {
+    $("#gem0").empty();
+    $("#gem1").empty();
+    $("#gem2").empty();
+    $("#gem3").empty();
+  }
+
 
 
   // reference wk4 exercise 3 QueryGenerator exercise code to generate text
@@ -58,86 +116,62 @@ $(document).ready(function () {
   titleScoreLabel.attr('style', 'background-color:turquoise');
 
 
-  //create array of numbers between 1 and 4 for the gem image nth iterations 
-  for (let i = 0; i < 4; i++) {
-    gemNumber.push(i);
-  }
+  gemInit();
 
-
-  // used wk4 exercise 12 crystal example but tweaked it 
-  // so each nth gem image appears in its specific column
-  //  for loop to create crystals for each nth numberOption.
-  for (let i = 0; i < gemNumber.length; i++) {
-
-    // For each iteration, we will create an gemImage
-    let gemImage = $("<img>");
-
-    // each crystal will be given the class ".gem-image".
-    gemImage.addClass("gem-image");
-
-    // Each gemImage in the gemNumber array will be given a src link to the gem image
-    gemImage.attr("src", "./assets/images/gem" + [i] + ".jpg");
-
-    // Each gemImage will be given a data attribute called data-gemValue.
-    // data-gemValue will be used further down in code for onClick
-    // This data attribute will be set equal to the array value.
-    gemImage.attr("data-gemValue", Math.floor(Math.random() * 12) + 1);
-
-
-    // generate a random number 
-    // gemClick = [Math.floor(Math.random() * 12) + 1];
-    
-    // randomGemClick.push(gemClick);
-
-    // used youtube video and fridge video to figure this out 
-    //https://www.youtube.com/watch?v=Cc3K2jDdKTo
-    //  each gem image is appended to my gem row in its specific column
-    $('#gem' + [i]).append(gemImage);
-
-  }
-
+  startGame();
   // created on click to apply to gems created above
   // using the class "gem-image we created above"
-  $(".gem-image").on("click", function () {
+  function startGame() {
+
+    $(".gem-image").on("click", function () {
 
 
 
-    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-    // Using .attr("data-gemValue") to obtain the value out from the "data-gemValue" attribute.
-    //
-    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+      // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+      // Using .attr("data-gemValue") to obtain the value out from the "data-gemValue" attribute.
+      //
+      // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
-    gemValue = ($(this).attr("data-gemValue"));
-    gemValue = parseInt(gemValue);
+      gemValue = ($(this).attr("data-gemValue"));
+      gemValue = parseInt(gemValue);
+      console.log(gemValue);
 
 
-    // jQuery alternative to add a new div
-    let scoreDiv = $("<div>");
-    
-   
-    // jquery to add target score 
-   
-    userScore = userScore * 1;
-    userScore += gemValue;
-    scoreDiv.html(userScore);
-    // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
-    $("#playerScore").html(scoreDiv);
+      // jQuery alternative to add a new div
+      let scoreDiv = $("<div>");
 
-    // use will use this code to apply CSS
-    scoreDiv.attr('style', 'background-color:turquoise');
+      // mutliply userScore by one to convert to int .. 
+      // i could use parseInt also
+      userScore = userScore * 1;
 
-    // We then add the gemValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
-    // userScore += gemValue;
 
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-    // alert("New score: " + userScore);
+      // combine existing score + gem value
+      userScore += gemValue;
+      scoreDiv.html(userScore);
+      
+      // add scoreDiv to #playerScore
+      $("#playerScore").html(scoreDiv);
 
-    // if (userScore === randomTarget) {
-    // alert("You win!");
-    // }
+      // use will use this code to apply CSS
+      scoreDiv.attr('style', 'background-color:turquoise');
 
-    // else if (userScore >= randomTarget) {
-    // alert("You lose!!");
-  })
+
+
+
+      if (userScore === parseInt(targetPractice)) {
+        winCounter++;
+        init();
+
+        // created start game function, so user can play after win/lose
+        startGame();
+      }
+
+      else if (userScore >= randomTarget) {
+        alert("You lose!!");
+        lossCounter++;
+        init();
+        startGame();
+      }
+    })
+  }
 })
