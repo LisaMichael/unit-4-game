@@ -2,6 +2,8 @@ $(document).ready(function () {
   let targetNumber = [];
   let winCounter = 0;
   let lossCounter = 0;
+  $("#wins").html("0");
+  $("#losses").html("0");
   let userScore = 0;
   let gemNumber = [];
   let randomTarget = [];
@@ -105,7 +107,7 @@ $(document).ready(function () {
   // function targetNew() {
 
   // jQuery  used to create a new <div>
-  /*let newDiv = $("<div>");
+  let newDiv = $("<div>");
 
   // jquery to add target score to game.js
   newDiv.html(randomTarget);
@@ -114,7 +116,7 @@ $(document).ready(function () {
   $("#gameTarget").append(newDiv);
 
   // use will use this code to apply CSS
-  newDiv.attr("class", "targetDiv");*/
+  // newDiv.attr("class", "targetDiv");
 
   // }
 
@@ -135,7 +137,7 @@ $(document).ready(function () {
   // creating a div to keep count of the wins / losses
 
   // let winLossTotal = $("<div>");
-  
+
 
   //reset my gems after win/loss or prior to start of game
   gemInit();
@@ -164,7 +166,7 @@ $(document).ready(function () {
 
       // mutliply userScore by one to convert to int .. 
       // i could use parseInt also
-      userScore = userScore * 1;
+      userScore = parseInt(userScore);
 
 
       // combine existing score + gem value
@@ -180,7 +182,7 @@ $(document).ready(function () {
 
 
       // if user's score = target score, end user wins
-      if (userScore === parseInt(randomTarget)) {
+      if (userScore == parseInt(randomTarget)) {
         winCounter++;
         $("#wins").html(winCounter);
         init();
@@ -189,10 +191,11 @@ $(document).ready(function () {
         startGame();
       }
 
-      if (userScore > randomTarget) {
+      if (userScore > parseInt(randomTarget)) {
         alert("You lose!!");
         lossCounter++;
-$("#losses").append(lossCounter);
+        // $("#losses").append(lossCounter);
+        $("#losses").html(lossCounter);
         init();
         startGame();
       }
