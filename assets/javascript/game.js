@@ -70,7 +70,7 @@ $(document).ready(function () {
 
       // used youtube video and fridge video to figure this out 
       //https://www.youtube.com/watch?v=Cc3K2jDdKTo
-      //  each gem image is appended to my gem row in its specific column
+      //  each gem image is appended to my id = gem nth  in its specific column
       $('#gem' + [i]).append(gemImage);
 
     }
@@ -92,19 +92,19 @@ $(document).ready(function () {
 
 
 
-  // jQuery alternative to: var newDiv = document.createElement("div");
+  // jQuery  used to create a new <div>
   let newDiv = $("<div>");
 
   // jquery to add target score to game.js
   newDiv.html(targetPractice);
 
-  // jQuery alternative to: document.querySelector("#empty-div").appendChild(newDiv);
+  // added newDiv to id=gameTarget 
   $("#gameTarget").append(newDiv);
 
   // use will use this code to apply CSS
   newDiv.attr("class", "targetDiv");
 
-  // working on score title
+  // working on score title label
   // made titleScore a <p> and html then appended to scoreTitle
   const titleScoreLabel = $("<p>");
   titleScoreLabel.html("Your Total Score is: ");
@@ -115,10 +115,12 @@ $(document).ready(function () {
   //https://stackoverflow.com/questions/24687431/uses-jquery-attr-to-set-css/24687602
   titleScoreLabel.attr('style', 'background-color:turquoise');
 
-
+  //reset my gems after win/loss or prior to start of game
   gemInit();
 
+  //startGame function allows a user to start a new game after win/loss
   startGame();
+
   // created on click to apply to gems created above
   // using the class "gem-image we created above"
   function startGame() {
@@ -148,7 +150,7 @@ $(document).ready(function () {
       // combine existing score + gem value
       userScore += gemValue;
       scoreDiv.html(userScore);
-      
+
       // add scoreDiv to #playerScore
       $("#playerScore").html(scoreDiv);
 
@@ -157,7 +159,7 @@ $(document).ready(function () {
 
 
 
-
+// if user's score = target score, end user wins
       if (userScore === parseInt(targetPractice)) {
         winCounter++;
         init();
