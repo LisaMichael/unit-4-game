@@ -13,26 +13,30 @@ $(document).ready(function () {
     $("#playerScore").html(userScore);
     gemEmpty();
     gemInit();
-    // $("#gameTarget").empty();
+    $("#gameTarget").empty();
     target();
     // targetNew();
     newDiv.html(targetPractice);
   }
 
   // create target array of numbers between 19 and 120 using a for loop
-   
-  
 
-    function target() {
 
-      // for (let i = 19; i < 121; i++) {
-      //   targetNumber.push(i);
-      // }
+
+  function target() {
+
+    // for (let i = 19; i < 121; i++) {
+    //   targetNumber.push(i);
+    // }
 
 
     // create a random number for the targetNumber array
     randomTarget = Math.floor(Math.random() * 119) + 19;
-    $("#gameTarget").text(randomTarget);
+
+    $("#gameTarget").html(randomTarget);
+    // $("#targetDiv").text(randomTarget);
+
+    // targetPractice = randomTarget;
 
     //return the randomTarget value and close function
     return randomTarget;
@@ -85,9 +89,11 @@ $(document).ready(function () {
     // $("#gem2").empty();
     // $("#gem3").empty();
 
-for(let i=0;i<4; i++){
-$("#gem"+i).empty();
-}
+
+    // used a for loop ... just because i can
+    for (let i = 0; i < 4; i++) {
+      $("#gem" + i).empty();
+    }
 
   }
 
@@ -96,21 +102,21 @@ $("#gem"+i).empty();
   // reference wk4 exercise 3 QueryGenerator exercise code to generate text
   $("#gameDesc").html("<p>You will be given a random number at the start of the game.</p><p>There are four crystals below. By clicking on a crystal you, you will add a specific amount of points to your total score.</p><p>You win the game by matching your total score to random number. You lose the game if your total score goes above the random number. </p>The value of each crystal is hidden from you until you click on it.<p></p><p>Each time you when the game starts, the game will change the  value of each crystal.</p>");
 
-// function targetNew() {
+  // function targetNew() {
 
   // jQuery  used to create a new <div>
-  let newDiv = $("<div>");
+  /*let newDiv = $("<div>");
 
   // jquery to add target score to game.js
-  newDiv.html(targetPractice);
+  newDiv.html(randomTarget);
 
   // added newDiv to id=gameTarget 
   $("#gameTarget").append(newDiv);
 
   // use will use this code to apply CSS
-  newDiv.attr("class", "targetDiv");
+  newDiv.attr("class", "targetDiv");*/
 
-// }
+  // }
 
 
 
@@ -125,6 +131,12 @@ $("#gem"+i).empty();
   //https://stackoverflow.com/questions/24687431/uses-jquery-attr-to-set-css/24687602
   titleScoreLabel.attr('style', 'background-color:turquoise');
 
+
+  // creating a div to keep count of the wins / losses
+
+  // let winLossTotal = $("<div>");
+  
+
   //reset my gems after win/loss or prior to start of game
   gemInit();
 
@@ -138,10 +150,8 @@ $("#gem"+i).empty();
     $(".gem-image").on("click", function () {
 
 
-
-      // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+      // Using $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
       // Using .attr("data-gemValue") to obtain the value out from the "data-gemValue" attribute.
-      //
       // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
       gemValue = ($(this).attr("data-gemValue"));
@@ -170,17 +180,19 @@ $("#gem"+i).empty();
 
 
       // if user's score = target score, end user wins
-      if (userScore === parseInt(targetPractice)) {
+      if (userScore === parseInt(randomTarget)) {
         winCounter++;
+        $("#wins").html(winCounter);
         init();
 
         // created start game function, so user can play after win/lose
         startGame();
       }
 
-      else if (userScore >= randomTarget) {
+      if (userScore > randomTarget) {
         alert("You lose!!");
         lossCounter++;
+$("#losses").append(lossCounter);
         init();
         startGame();
       }
