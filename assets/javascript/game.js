@@ -13,21 +13,26 @@ $(document).ready(function () {
     $("#playerScore").html(userScore);
     gemEmpty();
     gemInit();
-    targetNumber = [];
+    // $("#gameTarget").empty();
     target();
-    newDiv.html(randomTarget);
+    // targetNew();
+    newDiv.html(targetPractice);
   }
 
   // create target array of numbers between 19 and 120 using a for loop
+   
+  
 
-  function target() {
-    for (let i = 19; i < 121; i++) {
-      targetNumber.push(i);
-    }
+    function target() {
+
+      // for (let i = 19; i < 121; i++) {
+      //   targetNumber.push(i);
+      // }
 
 
     // create a random number for the targetNumber array
-    randomTarget = [Math.floor(Math.random() * (targetNumber.length) + 19)];
+    randomTarget = Math.floor(Math.random() * 119) + 19;
+    $("#gameTarget").text(randomTarget);
 
     //return the randomTarget value and close function
     return randomTarget;
@@ -36,11 +41,6 @@ $(document).ready(function () {
   }
 
   let targetPractice = target();
-
-
-
-  // initialize my gems, i put in a function
-
 
 
   //create array of numbers between 1 and 4 for the gem image nth iterations 
@@ -80,10 +80,15 @@ $(document).ready(function () {
 
   // empty my gems div, i'll call it back later in init function to fill it
   function gemEmpty() {
-    $("#gem0").empty();
-    $("#gem1").empty();
-    $("#gem2").empty();
-    $("#gem3").empty();
+    // $("#gem0").empty();
+    // $("#gem1").empty();
+    // $("#gem2").empty();
+    // $("#gem3").empty();
+
+for(let i=0;i<4; i++){
+$("#gem"+i).empty();
+}
+
   }
 
 
@@ -91,7 +96,7 @@ $(document).ready(function () {
   // reference wk4 exercise 3 QueryGenerator exercise code to generate text
   $("#gameDesc").html("<p>You will be given a random number at the start of the game.</p><p>There are four crystals below. By clicking on a crystal you, you will add a specific amount of points to your total score.</p><p>You win the game by matching your total score to random number. You lose the game if your total score goes above the random number. </p>The value of each crystal is hidden from you until you click on it.<p></p><p>Each time you when the game starts, the game will change the  value of each crystal.</p>");
 
-
+// function targetNew() {
 
   // jQuery  used to create a new <div>
   let newDiv = $("<div>");
@@ -104,6 +109,10 @@ $(document).ready(function () {
 
   // use will use this code to apply CSS
   newDiv.attr("class", "targetDiv");
+
+// }
+
+
 
   // working on score title label
   // made titleScore a <p> and html then appended to scoreTitle
@@ -160,7 +169,7 @@ $(document).ready(function () {
 
 
 
-// if user's score = target score, end user wins
+      // if user's score = target score, end user wins
       if (userScore === parseInt(targetPractice)) {
         winCounter++;
         init();
