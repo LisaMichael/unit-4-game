@@ -192,7 +192,6 @@ $(document).ready(function () {
       }
 
       if (userScore > parseInt(randomTarget)) {
-        alert("You lose!!");
         lossCounter++;
         $("#winloss").html("<p>YOU LOSE!</p");
         $("#losses").html(lossCounter);
