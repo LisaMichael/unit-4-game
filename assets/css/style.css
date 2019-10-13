@@ -48,10 +48,12 @@ label {
   width: 200px;
   color: #ffffff;
   margin-bottom: 0px; 
+  padding-left: 5px;
 }
 
   #playerScore {
     margin-top: 0px;
+    margin-bottom: 0px;
     font-size: 18px;
     color: #ffffff;
   background-color: turquoise;
