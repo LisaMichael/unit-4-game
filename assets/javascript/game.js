@@ -34,8 +34,8 @@ $(document).ready(function () {
 
     // create a random number for the targetNumber array
     randomTarget = Math.floor(Math.random() * 119) + 19;
-console.log(randomTarget);
-    
+    console.log(randomTarget);
+
     // $("#targetDiv").text(randomTarget);
 
     // targetPractice = randomTarget;
@@ -153,9 +153,8 @@ console.log(randomTarget);
       // Clear YOU WIN/YOU LOSE <p> if present
       $("#winloss").html("");
 
-      // Using $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-      // Using .attr("data-gemValue") to obtain the value out from the "data-gemValue" attribute.
-      // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+      // $(this) keyword specifies that we will extract the data-gemValue of the clicked crystal.
+      //  HTML elements are strings, we must convert to integer before adding to the counter
 
       gemValue = ($(this).attr("data-gemValue"));
       gemValue = parseInt(gemValue);
@@ -165,7 +164,7 @@ console.log(randomTarget);
       // jQuery alternative to add a new div
       let scoreDiv = $("<div>");
 
-    
+
       // use parseInt to convert to integer
       userScore = parseInt(userScore);
 
@@ -179,7 +178,6 @@ console.log(randomTarget);
 
       // use will use this code to apply CSS
       scoreDiv.attr('style', 'background-color:turquoise');
-
 
 
       // if user's score = target score, end user wins

@@ -6,7 +6,7 @@ h1 {
 body {
 
     background-image: url("../images/honeycomb.jpg");
-    
+    padding: 10px;
   }
 
   .container {
@@ -19,36 +19,46 @@ body {
   
   #gameTarget {
     font-size: 24px;
-      color: rgb(4, 42, 73);
+      color: rgb(96, 9, 122);
     background-color:  rgb(0, 255, 42);
     width: 200px;
+    margin-right: 5px;
   }
 
   #gameDesc {
-    font-size: 14px;
+    font-size: 12px;
     background-color: rgba(243, 168, 145, 0.952);
-    
+    color: green;
+    margin-bottom: 5px;
   }
 
   #win-loss {
-    font-size: 24px;
+    font-size: 12px;
     color: rgb(4, 42, 73);
   background-color:  rgba(11, 236, 150, 0.993);
- 
-
+  height: 90px;
   }
+
+  #gem0, #gem1, #gem2, #gem3 {
+    margin: 0px;
+    padding: 0px;
+  }
+label {
+  
+  width: 200px;
+  color: #ffffff;
+  margin-bottom: 0px; 
+}
 
   #playerScore {
-    font-size: 24px;
-    color: rgb(4, 42, 73);
-  background-color:  rgba(11, 236, 150, 0.993);
+    margin-top: 0px;
+    font-size: 18px;
+    color: #ffffff;
+  background-color: turquoise;
   width: 200px;
+  height: 50px;
+  padding: 5px;
  
   }
 
-  /* #winRow {
-    visibility: hidden;
-  }
-  #lossesRow {
-    visibility: hidden;
-  } */
+  
