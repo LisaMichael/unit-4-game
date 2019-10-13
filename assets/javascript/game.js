@@ -15,9 +15,14 @@ $(document).ready(function () {
     $("#playerScore").html(userScore);
     gemEmpty();
     gemInit();
+    // empty the target score div, run target function to generate a new target score
+    // then populate the target score div
     $("#gameTarget").empty();
     target();
-    // targetNew();
+
+    // if  $("#gameTarget").html(randomTarget); is placed in target() function
+    // then the score appears twice, but will only appear once if i add it to init function
+    $("#gameTarget").html(randomTarget);
     newDiv.html(targetPractice);
   }
 
@@ -34,8 +39,8 @@ $(document).ready(function () {
 
     // create a random number for the targetNumber array
     randomTarget = Math.floor(Math.random() * 119) + 19;
-
-    $("#gameTarget").html(randomTarget);
+console.log(randomTarget);
+    
     // $("#targetDiv").text(randomTarget);
 
     // targetPractice = randomTarget;
@@ -164,8 +169,8 @@ $(document).ready(function () {
       // jQuery alternative to add a new div
       let scoreDiv = $("<div>");
 
-      // mutliply userScore by one to convert to int .. 
-      // i could use parseInt also
+    
+      // use parseInt to convert to integer
       userScore = parseInt(userScore);
 
 
