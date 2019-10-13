@@ -15,7 +15,9 @@ body {
     display: inline-block; 
   }
 
-  
+  #gameDesc, #gameTarget, #win-loss, #gem0, #gem1, #gem2, #gem3, label, #playerScore  {
+    margin-bottom: 5px;
+  }
   
   #gameTarget {
     font-size: 24px;
@@ -29,7 +31,7 @@ body {
     font-size: 12px;
     background-color: rgba(243, 168, 145, 0.952);
     color: green;
-    margin-bottom: 5px;
+    
   }
 
   #win-loss {
@@ -40,20 +42,19 @@ body {
   }
 
   #gem0, #gem1, #gem2, #gem3 {
-    margin: 0px;
     padding: 0px;
   }
 label {
   
   width: 200px;
   color: #ffffff;
-  margin-bottom: 0px; 
+  
   padding-left: 5px;
 }
 
   #playerScore {
-    margin-top: 0px;
-    margin-bottom: 0px;
+   
+  
     font-size: 18px;
     color: #ffffff;
   background-color: turquoise;
