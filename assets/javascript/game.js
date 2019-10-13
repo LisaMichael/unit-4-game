@@ -26,15 +26,10 @@ $(document).ready(function () {
     newDiv.html(targetPractice);
   }
 
-  // create target array of numbers between 19 and 120 using a for loop
 
 
 
   function target() {
-
-    // for (let i = 19; i < 121; i++) {
-    //   targetNumber.push(i);
-    // }
 
 
     // create a random number for the targetNumber array
@@ -129,7 +124,7 @@ console.log(randomTarget);
 
   // working on score title label
   // made titleScore a <p> and html then appended to scoreTitle
-  const titleScoreLabel = $("<p>");
+  const titleScoreLabel = $("<label>");
   titleScoreLabel.html("Your Total Score is: ");
   $("#scoreTitle").append(titleScoreLabel);
 
@@ -139,9 +134,8 @@ console.log(randomTarget);
   titleScoreLabel.attr('style', 'background-color:turquoise');
 
 
-  // creating a div to keep count of the wins / losses
-
-  // let winLossTotal = $("<div>");
+  // used to set player score = 0 when loading page
+  $("#playerScore").html(userScore);
 
 
   //reset my gems after win/loss or prior to start of game
@@ -156,6 +150,8 @@ console.log(randomTarget);
 
     $(".gem-image").on("click", function () {
 
+      // Clear YOU WIN/YOU LOSE <p> if present
+      $("#winloss").html("");
 
       // Using $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
       // Using .attr("data-gemValue") to obtain the value out from the "data-gemValue" attribute.
@@ -187,8 +183,9 @@ console.log(randomTarget);
 
 
       // if user's score = target score, end user wins
-      if (userScore == parseInt(randomTarget)) {
+      if (userScore === parseInt(randomTarget)) {
         winCounter++;
+        $("#winloss").html("<p>YOU WIN!</p");
         $("#wins").html(winCounter);
         init();
 
@@ -199,7 +196,7 @@ console.log(randomTarget);
       if (userScore > parseInt(randomTarget)) {
         alert("You lose!!");
         lossCounter++;
-        // $("#losses").append(lossCounter);
+        $("#winloss").html("<p>YOU LOSE!</p");
         $("#losses").html(lossCounter);
         init();
         startGame();

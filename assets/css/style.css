@@ -1,10 +1,12 @@
 h1 {
   background-color:rgb(235, 109, 25);
   width: 350px;
+  
 }
 body {
 
     background-image: url("../images/honeycomb.jpg");
+    
   }
 
   .container {
@@ -19,9 +21,34 @@ body {
     font-size: 24px;
       color: rgb(4, 42, 73);
     background-color:  rgb(0, 255, 42);
+    width: 200px;
   }
 
   #gameDesc {
     font-size: 14px;
     background-color: rgba(243, 168, 145, 0.952);
+    
   }
+
+  #win-loss {
+    font-size: 24px;
+    color: rgb(4, 42, 73);
+  background-color:  rgba(11, 236, 150, 0.993);
+ 
+
+  }
+
+  #playerScore {
+    font-size: 24px;
+    color: rgb(4, 42, 73);
+  background-color:  rgba(11, 236, 150, 0.993);
+  width: 200px;
+ 
+  }
+
+  /* #winRow {
+    visibility: hidden;
+  }
+  #lossesRow {
+    visibility: hidden;
+  } */
